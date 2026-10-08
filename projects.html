@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BugFlow | Projects</title>
+
+
+  <link rel="stylesheet" href="dashboard.css" />
+
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="projects.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand" aria-label="BugFlow brand">
+       <span class="brand-icon" aria-hidden="true">🐛</span>
+      <span class="brand-text">BugFlow</span>
+    </div>
+
+    <div class="topbar-actions">
+      <button id="themeToggle" class="btn btn-chip" type="button">🌙 Light Mode</button>
+
+      <button id="goDashboardBtn" class="btn btn-gold" type="button">Go to Dashboard</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="content">
+      <h1 class="page-title">Saved Projects</h1>
+      <p class="page-subtitle">
+        Add school projects here. They will also appear in the issue creation project dropdown.
+      </p>
+
+      <div class="meta-row">
+        <span id="totalProjects" class="meta-pill">Total Projects: 0</span>
+        <button id="showProjectFormBtn" class="btn btn-gold" type="button">+ Add Project</button>
+        <button id="clearProjectsBtn" class="btn btn-ghost" type="button" title="For demo/testing only">
+          Clear List
+        </button>
+      </div>
+
+      <form id="projectForm" class="project-form" hidden>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="projectName">Project Name *</label>
+            <input id="projectName" type="text" placeholder="Example: Website Redesign" required>
+          </div>
+
+          <div class="form-group">
+            <label for="projectCode">Project Code</label>
+            <input id="projectCode" type="text" placeholder="Example: PRJ001">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="projectDescription">Description</label>
+          <textarea id="projectDescription" rows="3" placeholder="Short description of the project"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-gold" type="submit">Save Project</button>
+          <button id="cancelProjectBtn" class="btn btn-ghost" type="button">Cancel</button>
+        </div>
+
+        <p id="projectMessage" class="project-message"></p>
+      </form>
+
+      <!-- Projects list -->
+      <div id="projectsList" class="projects-list" aria-live="polite"></div>
+
+      <!-- Empty state -->
+      <div id="emptyState" class="empty-state" hidden>
+        <p class="empty-title">No projects yet</p>
+        <p class="empty-text">
+          Click the gold “Add Project” button above to create your first project.
+        </p>
+      </div>
+    </section>
+
+    <div class="exit-system-container" role="contentinfo">
+      <button id="exitSystemBtn" class="btn btn-exit" type="button">🚪 Exit Workspace</button>
+    </div>
+  </main>
+
+  <script src="projects.js"></script>
+</body>
+</html>

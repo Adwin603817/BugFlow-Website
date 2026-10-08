@@ -1,0 +1,383 @@
+/* Basic body setup */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfbf7; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #2b2b2b;
+}
+
+/* Custom gold text color */
+.text-gold { 
+  color: #996515; 
+  letter-spacing: 0.5px; 
+}
+
+/* Styling for the main action buttons */
+.gold-btn { 
+  background: linear-gradient(135deg, #c59b27 0%, #8b6508 100%); 
+  color: white; 
+  border: none; 
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.gold-btn:hover { 
+  opacity: 0.9;
+  color: white;
+  transform: scale(1.02);
+}
+
+/* Making the navbar look like frosted glass */
+.my-nav {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px); 
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.logo-style { 
+  background: linear-gradient(135deg, #c59b27 0%, #8b6508 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Base style for the Kanban columns */
+.col-container {
+  min-height: 75vh;
+  max-height: 75vh; /* Prevents the column from growing too tall */
+  overflow-y: auto; /* Adds an internal scrollbar if there are too many cards */
+  padding: 12px;
+  border-radius: 20px;
+}
+
+/* This makes the scrollbar look thin and modern, not clunky  */
+.col-container::-webkit-scrollbar {
+  width: 6px;
+}
+.col-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 10px;
+}
+
+/* Setting up the glass look for all three columns separately */
+.bg-open {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.bg-resolved {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.bg-overdue {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Styling for the issue cards to make them float */
+.task-card {
+  border: none;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(197, 155, 39, 0.15); 
+}
+
+/* Priority & Status Badges */
+.my-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-high { background-color: #fee2e2; color: #dc2626; }   
+.badge-medium { background-color: #fef3c7; color: #d97706; } 
+.badge-low { background-color: #dcfce7; color: #16a34a; }    
+.badge-open { background-color: #f3f4f6; color: #4b5563; } 
+.badge-resolved { background-color: #d1fae5; color: #059669; } 
+.badge-overdue { background-color: #ffe4e6; color: #e11d48; }  
+
+/* User Profile Pictures */
+.avatar-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%; 
+  object-fit: cover;
+  border: 2px solid #fff; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Full screen loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*  DARK MODE STYLES */
+.dark-mode { 
+  background-color: #121212; 
+  color: #e0e0e0; 
+}
+
+.dark-mode .my-nav { 
+  background: rgba(30, 30, 30, 0.8); 
+  border: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+/* Changing the columns to white glass in dark mode */
+.dark-mode .bg-open {
+  background-color: rgba(255, 255, 255, 0.02); 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .bg-resolved {
+  background-color: rgba(255, 255, 255, 0.02); 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .bg-overdue {
+  background-color: rgba(255, 255, 255, 0.02); 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .task-card { 
+  background-color: #1e1e1e; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); 
+}
+
+/* Dark mode overrides for avatars and text */
+.dark-mode .avatar-img {
+  border-color: #1e1e1e;
+}
+
+.dark-mode .card-body p, 
+.dark-mode .card-body h6, 
+.dark-mode .card-body small { 
+  color: #e0e0e0 !important; 
+}
+
+.dark-mode .modal-content { 
+  background-color: #1e1e1e; 
+  color: #e0e0e0; 
+}
+
+.dark-mode .bg-light { 
+  background-color: #2c2c2c !important; 
+  border-color: #444 !important; 
+}
+
+.dark-mode .loading-overlay { 
+  background: rgba(18, 18, 18, 0.8); 
+}
+
+/* Make sure the search bar text and border look good in dark mode */
+.dark-mode .custom-search {
+  color: #e0e0e0;
+}
+.dark-mode .input-group-text,
+.dark-mode .custom-search {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.dark-mode .custom-search::placeholder {
+  color: #888;
+}
+
+
+/* Custom Scrollbar to match the Gold Theme */
+.col-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* The track (the path the scrollbar moves in) */
+.col-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02); 
+  border-radius: 10px;
+}
+
+/* The thumb (the actual part you drag) */
+.col-container::-webkit-scrollbar-thumb {
+  background-color: rgba(197, 155, 39, 0.4); /* Soft transparent Gold */
+  border-radius: 10px;
+}
+
+.col-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(197, 155, 39, 0.8); /* Darker Gold when hovered */
+}
+
+
+
+/* EXIT BUTTON (Un-floated)                   */
+
+.exit-btn {
+  background: linear-gradient(135deg, #c59b27, #8b6508);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(197, 155, 39, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.exit-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(197, 155, 39, 0.4);
+  color: white;
+}
+
+
+/* DARK MODE TEXT & CONTRAST FIXES            */
+
+
+/* 1. Fix standard dark text (like the #14 ticket number) */
+.dark-mode .text-dark,
+.dark-mode .text-body {
+  color: #f8f9fa !important; /* Flips black text to off-white */
+}
+
+/* 2. Fix muted text (like "Pending..." and descriptions) */
+.dark-mode .text-muted {
+  color: #adb5bd !important; /* Flips dark grey to a visible light grey */
+}
+
+/* 3. Fix the 'X' Close button in the modal */
+.dark-mode .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* 4. Fix input fields and textareas inside the modal */
+.dark-mode .form-control,
+.dark-mode .custom-input {
+  background-color: #2b2b2b;
+  color: #ffffff;
+  border-color: #444;
+}
+
+/* Ensure placeholder text inside inputs is visible */
+.dark-mode .form-control::placeholder,
+.dark-mode .custom-input::placeholder {
+  color: #888888;
+}
+
+/* 5. Fix the Column Issue Counters */
+.dark-mode .badge.bg-light, 
+.dark-mode .rounded-circle {
+  background-color: #2b2b2b !important; /* Deep grey background */
+  color: #c59b27 !important;            /* Champagne Gold number */
+  border: 1px solid rgba(197, 155, 39, 0.3); /* Subtle gold border */
+}
+
+/* Make sure standard badges (like High/Medium Priority) keep their original text colors */
+.dark-mode .badge-danger, 
+.dark-mode .badge-warning, 
+.dark-mode .badge-success {
+  color: #ffffff !important;
+}
+
+
+/* Filter Bar Styling */
+.filter-bar {
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+}
+
+.filter-pill {
+  border: 1px solid #dee2e6;
+  color: #6c757d;
+  border-radius: 50px;
+  padding: 4px 16px;
+  background: transparent;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.filter-pill:hover, .filter-pill.active {
+  border-color: #c59b27;
+  color: #c59b27;
+}
+
+.filter-pill.active {
+  background: rgba(197, 155, 39, 0.1);
+  font-weight: 600;
+}
+
+/* Upgraded View Details Button */
+.btn-view-details {
+  background: transparent;
+  border: 1px solid #dee2e6;
+  color: #c59b27;
+  transition: all 0.2s ease;
+}
+
+.btn-view-details:hover {
+  background: rgba(197, 155, 39, 0.1);
+  border-color: #c59b27;
+  color: #996515;
+  transform: translateY(-2px);
+}
+
+/* Empty States */
+.empty-state {
+  border: 2px dashed rgba(0,0,0,0.1);
+  border-radius: 16px;
+  width: 90%;
+}
+
+
+/* DARK MODE OVERRIDES FOR NEW FEATURES       */
+
+
+.dark-mode .filter-bar {
+  background: rgba(30, 30, 30, 0.8);
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode .filter-pill {
+  border-color: #444;
+  color: #aaa;
+}
+
+.dark-mode .custom-select {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+.dark-mode .btn-view-details {
+  border-color: #444;
+}
+
+.dark-mode .empty-state {
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Custom Column Counters (Dark Mode Fix) */
+.dark-mode .column-counter {
+  background-color: #2b2b2b !important; 
+  color: #c59b27 !important;            
+  border: 1px solid rgba(197, 155, 39, 0.3) !important;
+}
+/* Keeps the dashboard exit button in the same bottom-center position as the other pages */
+.dashboard-exit-container {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 1000;
+}

@@ -1,0 +1,312 @@
+/* Theme variables (light defaults) */
+:root {
+  --bg: #0b0b0b;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-2: rgba(255, 255, 255, 0.04);
+  --text: #f3f3f3;
+  --muted: rgba(255, 255, 255, 0.68);
+  --border: rgba(255, 255, 255, 0.10);
+  --shadow: rgba(0, 0, 0, 0.35);
+
+  --gold: #c79a1b;
+  --gold-2: #e6b73b;
+  --danger: #ff5959;
+}
+
+/* Dark mode is applied via body.dark (set in projects.js) */
+body.dark {
+  --bg: #0b0b0b;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-2: rgba(255, 255, 255, 0.04);
+  --text: #f3f3f3;
+  --muted: rgba(255, 255, 255, 0.68);
+  --border: rgba(255, 255, 255, 0.10);
+}
+
+/* Light mode via body.light */
+body.light {
+  --bg: #f6f6f6;
+  --panel: rgba(0, 0, 0, 0.04);
+  --panel-2: rgba(0, 0, 0, 0.03);
+  --text: #121212;
+  --muted: rgba(0, 0, 0, 0.65);
+  --border: rgba(0, 0, 0, 0.10);
+  --shadow: rgba(0, 0, 0, 0.12);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Keep header layout aligned with dashboard screenshot */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+/* We keep brand styles minimal to allow dashboard.css to win */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+.brand-icon { font-size: 18px; }
+.brand-text { font-weight: 700; letter-spacing: 0.2px; }
+
+/* Actions on the right */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Page content */
+.page {
+  position: relative;
+  padding-bottom: 90px; /* space for exit button */
+}
+
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 44px 18px 18px;
+  text-align: center;
+}
+
+.page-title {
+  margin: 0 0 10px;
+  font-size: 42px;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* similar feel to screenshot */
+}
+
+.page-subtitle {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Projects list */
+.projects-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.project-card {
+  text-align: left;
+  padding: 16px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  box-shadow: 0 10px 26px var(--shadow);
+}
+
+.project-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.project-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Buttons */
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn:hover { filter: brightness(1.07); }
+
+.btn-chip {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-gold {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  color: #111;
+  border: none;
+  font-weight: 700;
+}
+
+/* For small utility action */
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Exit system bottom-center */
+.exit-system-container {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.btn-exit {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  color: #111;
+  border: none;
+  font-weight: 700;
+  padding: 12px 18px;
+}
+
+/* Empty state */
+.empty-state {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.empty-title {
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+.empty-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .topbar { flex-direction: column; align-items: stretch; }
+  .topbar-actions { justify-content: flex-end; }
+  .page-title { font-size: 34px; }
+}
+
+/* Add project form styling */
+.project-form {
+  text-align: left;
+  margin: 18px auto 22px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  color: var(--gold-2);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 13px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--gold-2);
+  box-shadow: 0 0 0 3px rgba(199, 154, 27, 0.18);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-message {
+  display: none;
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.project-message.success {
+  display: block;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.project-message.error {
+  display: block;
+  color: var(--danger);
+  background: rgba(255, 89, 89, 0.08);
+  border: 1px solid rgba(255, 89, 89, 0.25);
+}
+
+.project-description {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 620px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

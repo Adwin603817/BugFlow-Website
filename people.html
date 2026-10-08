@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BugFlow | People</title>
+
+  <link rel="stylesheet" href="dashboard.css" />
+
+  <link rel="stylesheet" href="people.css" />
+</head>
+<body class="dark-mode">
+
+  <header class="people-topbar">
+    <div class="people-brand" aria-label="BugFlow brand">
+      <span class="people-brand-icon" aria-hidden="true">🐛</span>
+      <span class="people-brand-text">BugFlow</span>
+    </div>
+
+    <div class="people-actions">
+      <button id="themeToggleBtn" class="people-btn people-btn-chip" type="button">🌙 Light Mode</button>
+      <button id="goDashboardBtn" class="people-btn people-btn-gold" type="button">Go to Dashboard</button>
+    </div>
+  </header>
+
+  <main class="people-page">
+    <!-- Page heading. -->
+    <section class="people-hero">
+      <h1>People Management</h1>
+      <p>
+        Add team members here. Saved people will appear in the issue form when you select who logged the call or who the issue is assigned to.
+      </p>
+    </section>
+
+    <section class="people-layout">
+      <!-- Form card for adding and editing people. -->
+      <div class="people-card form-card">
+        <div class="card-heading-row">
+          <div>
+            <h2 id="formTitle">Add New Person</h2>
+            <p>Fill in the details below, then save the person.</p>
+          </div>
+          <span class="count-pill" id="peopleCount">0 People</span>
+        </div>
+
+        <form id="peopleForm" autocomplete="off">
+          <input type="hidden" id="personId" />
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="personName">Name *</label>
+              <input type="text" id="personName" placeholder="Example: Lebo" required />
+            </div>
+
+            <div class="form-group">
+              <label for="personSurname">Surname *</label>
+              <input type="text" id="personSurname" placeholder="Example: Dlamini" required />
+            </div>
+
+            <div class="form-group">
+              <label for="personEmail">Email *</label>
+              <input type="email" id="personEmail" placeholder="Example: lebo@mail.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="personUsername">Username *</label>
+              <input type="text" id="personUsername" placeholder="Example: ldlamini" required />
+            </div>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" class="people-btn people-btn-gold" id="savePersonBtn">Save Person</button>
+            <button type="button" class="people-btn people-btn-chip" id="clearPeopleFormBtn">Clear Form</button>
+          </div>
+        </form>
+
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+      </div>
+
+      <!-- List card for showing all saved people. -->
+      <div class="people-card list-card">
+        <div class="card-heading-row">
+          <div>
+            <h2>Saved People</h2>
+            <p>These names are stored in the system and can be used on issues.</p>
+          </div>
+        </div>
+
+        <div id="peopleList" class="people-list" aria-live="polite"></div>
+
+        <div id="emptyPeopleState" class="empty-state" hidden>
+          <p class="empty-title">No people saved yet</p>
+          <p class="empty-text">Use the form to add the first person to the system.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom exit button matches the other page layout style. -->
+    <div class="exit-system-container">
+      <button id="exitSystemBtn" class="people-btn people-btn-exit" type="button">🚪 Exit Workspace</button>
+    </div>
+  </main>
+
+  <!-- People page functionality. -->
+  <script src="people.js"></script>
+</body>
+</html>
